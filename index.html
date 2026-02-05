@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARK Instagram X — Full Feature</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="left-nav glass desktop-only">
+        <h1>Instagram X</h1>
+        <a href="#" class="nav-link active">🏠 Home</a>
+        <a href="#" class="nav-link">🔍 Search</a>
+        <a href="#" class="nav-link">🎬 Reels</a>
+        <a href="#" class="nav-link">✉️ Messages</a>
+        <a href="#" class="nav-link">❤️ Notifications</a>
+        <a href="#" class="nav-link">➕ Create</a>
+        <a href="#" class="nav-link">👤 Profile</a>
+      </aside>
+
+      <main class="feed-wrap">
+        <header class="mobile-header glass mobile-only">
+          <h2>Instagram X</h2>
+          <div class="header-actions">
+            <button type="button" id="mobileNotifBtn">♡</button>
+            <button type="button">✉️</button>
+          </div>
+        </header>
+
+        <section class="stories-wrap glass">
+          <div class="stories-head">
+            <h3>Stories</h3>
+            <button id="addStoryBtn" type="button">+ Add story</button>
+          </div>
+          <section class="stories" id="stories"></section>
+        </section>
+
+        <form id="postForm" class="composer glass">
+          <input id="postTitle" type="text" maxlength="40" placeholder="Username / title" required />
+          <input id="postLocation" type="text" maxlength="40" placeholder="Location" />
+          <input id="postMedia" type="url" placeholder="Image URL (optional)" />
+          <textarea id="postCaption" rows="2" maxlength="220" placeholder="Write a caption..." required></textarea>
+          <button type="submit">Share</button>
+        </form>
+
+        <section id="postFeed" class="post-feed"></section>
+      </main>
+
+      <aside class="right-panel glass desktop-only">
+        <div class="profile-card">
+          <div class="avatar"></div>
+          <div>
+            <strong>@you</strong>
+            <p>Futuristic creator</p>
+          </div>
+          <button id="followBtn" type="button" class="ghost-btn">Follow</button>
+        </div>
+
+        <div class="stats-grid">
+          <div><span id="postsCount">0</span><small>Posts</small></div>
+          <div><span id="likesCount">0</span><small>Likes</small></div>
+          <div><span id="savedCount">0</span><small>Saved</small></div>
+        </div>
+
+        <div class="dm-head">
+          <h3>Messages</h3>
+          <span id="typingStatus">Online</span>
+        </div>
+        <section id="chatList" class="chat-list"></section>
+        <form id="chatForm" class="chat-form">
+          <input id="chatInput" type="text" maxlength="160" placeholder="Send message..." required />
+          <button type="submit">Send</button>
+        </form>
+      </aside>
+
+      <nav class="mobile-bottom glass mobile-only">
+        <a href="#">🏠</a>
+        <a href="#">🔍</a>
+        <a href="#">🎬</a>
+        <a href="#">➕</a>
+        <a href="#">👤</a>
+      </nav>
+    </div>
+
+    <template id="storyTemplate">
+      <article class="story-item">
+        <button class="story-ring" type="button" title="Open story"><div class="story-avatar"></div></button>
+        <p></p>
+      </article>
+    </template>
+
+    <template id="postTemplate">
+      <article class="post-card glass">
+        <div class="post-head">
+          <div class="post-author-row">
+            <div class="mini-avatar"></div>
+            <div>
+              <h4></h4>
+              <small></small>
+            </div>
+          </div>
+          <button class="icon-btn" type="button">⋯</button>
+        </div>
+
+        <div class="post-media"></div>
+
+        <div class="post-toolbar">
+          <div>
+            <button class="icon-btn like-btn" type="button">♡</button>
+            <button class="icon-btn comment-focus-btn" type="button">💬</button>
+            <button class="icon-btn share-btn" type="button">✈️</button>
+          </div>
+          <button class="icon-btn save-btn" type="button">🔖</button>
+        </div>
+
+        <p class="likes"></p>
+        <p class="post-caption"></p>
+        <small class="post-time"></small>
+
+        <div class="comments"></div>
+        <form class="comment-form">
+          <input class="comment-input" type="text" maxlength="120" placeholder="Add a comment..." required />
+          <button type="submit">Post</button>
+        </form>
+      </article>
+    </template>
+
+    <template id="chatTemplate">
+      <article class="chat-item">
+        <div class="chat-dot"></div>
+        <div>
+          <strong></strong>
+          <p></p>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
